@@ -1,3 +1,12 @@
+## About The Project
+
+This is a react application for the famous tic-tac-toe game. This is a sample application to help get started with react and managing state across components. Its a responsive website. This a multiplayer set up and is very interactive.
+
+## Built With
+
+1) React.js
+2) HTML 5
+3) CSS
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
