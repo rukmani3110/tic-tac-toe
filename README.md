@@ -8,6 +8,10 @@ This is a react application for the famous tic-tac-toe game. This is a sample ap
 2) HTML 5
 3) CSS
 
+## Live Demo
+
+https://tic-tac-bv1gc6ae0-rukmanis-projects.vercel.app/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
