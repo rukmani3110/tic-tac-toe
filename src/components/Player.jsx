@@ -42,7 +42,6 @@ export default function Player({
             {isEditing ? "Save" : "Edit"}
           </button>
         </div>
-        {isActive && <div className="your-turn">Your turn</div>}
       </div>
     </>
   );

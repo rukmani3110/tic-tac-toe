@@ -18,12 +18,6 @@ html {
 }
 
 body {
-  background: radial-gradient(
-      circle at top,
-      rgba(241, 210, 70, 0.98),
-      rgba(250, 176, 103, 0.87)
-    ),
-    url("bg-pattern-dark.png");
   background-repeat: repeat;
   background-size:
     100% 100%,
@@ -31,6 +25,8 @@ body {
     100% 100%;
   height: 100vh;
   overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 header {
@@ -50,7 +46,6 @@ header img {
   color: #c3ba78;
   border-radius: 20px;
   width: 96px;
-  border: 2px dashed #c3ba78;
   line-height: 1;
   grid-area: logo;
   text-align: center;
@@ -58,22 +53,22 @@ header img {
 
 #game-container {
   padding: 2rem;
-  border-radius: 96px;
-  background: linear-gradient(#383624, #282617);
+  border-radius: 40px;
+  background: #2B0040;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   position: relative;
   display: grid;
   grid-template-areas:
-    "logo board board ."
-    ". board board ."
-    "player-1 board board player-2"
-    ". board board .";
+    "logo player-1 player-2"
+    "board board board";
   gap: 20px;
 }
 
 .players {
   display: flex;
   align-items: center;
+  justify-content: center;
+  color: #000;
 }
 
 .player-2 {
@@ -85,17 +80,16 @@ header img {
 }
 
 .player-wrapper {
-  height: 120px;
-  background: black;
-  border-radius: 24px;
-  opacity: 0.5;
-  width: 120px;
+  height: 96px;
+  background: #E2BE00;
+  border-radius: 8px;
+  width: 96px;
   position: relative;
 }
 
 .player-wrapper.active {
-  background-color: #565555;
-  opacity: 1;
+  background-color: #48D2FE;
+  box-shadow: 2px 2px 5px #fc894d;
 }
 
 .your-turn {
@@ -127,7 +121,6 @@ header img {
   width: 3rem;
   border: none;
   background: none;
-  color: #c3ba78;
   font-size: 0.9rem;
   cursor: pointer;
   transition: color 0.2s;
@@ -136,7 +129,7 @@ header img {
 }
 
 .players button:hover {
-  color: #f8ca31;
+  font-weight: bold;
 }
 
 .player {
@@ -147,13 +140,12 @@ header img {
   align-items: center;
   width: 100%;
   height: 100%;
-  padding: 8px;
+  padding: 4px;
 }
 
 .player-name {
   display: inline-block;
   font-size: 1rem;
-  color: #e1dec7;
   text-transform: uppercase;
   margin: 0;
   border-radius: 4px;
@@ -164,18 +156,19 @@ header img {
 
 .player input {
   font: inherit;
-  font-size: 1rem;
+  font-size: 12px;
   border: none;
   animation: pulse-text 2s infinite;
-  background-color: #46432f;
+  background-color: #43115B;
   text-align: center;
   text-transform: uppercase;
   width: 100%;
+  border-radius: 16px;
 }
 
 .player-symbol {
   font-size: 20px;
-  background-color: #9f9d83;
+  background-color:#43115B;
   left: calc(50% - 16px);
   border-radius: 50px;
   color: #e1dec7;
@@ -211,13 +204,12 @@ ol {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 3rem 0;
   padding: 0;
   flex-direction: column;
   grid-area: board;
-  border: 1px dashed #aca788;
   padding: 16px;
   border-radius: 24px;
+  gap: 8px;
 }
 
 #game-board ol {
@@ -226,21 +218,19 @@ ol {
   justify-content: center;
   margin: 0;
   padding: 0;
+  gap: 8px;
 }
 
 #game-board button {
   width: 8rem;
   height: 8rem;
   border: none;
-  background: #aca788;
-  color: #3f3b00;
+  background: #43115B;
+  color: #2B0040;
   font-size: 5rem;
   cursor: crosshair;
   font-family: "Caprasimo", cursive;
   padding: 1rem;
-  border: 1px dashed;
-  border-top: none;
-  border-left: none;
 }
 
 #game-over {
@@ -253,23 +243,24 @@ ol {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(40, 38, 23, 0.95);
+  background-color: #2B0040;
   animation: pop-in 0.5s cubic-bezier(0.68, -0.55, 0.65, 0.52) forwards;
   z-index: 1;
+  opacity: 0.95;
 }
 
 #game-over h2 {
   font-family: "Caprasimo", cursive;
   font-size: 4rem;
   text-align: center;
-  color: #fcd256;
+  color: #dc94ff;
   margin: 0;
 }
 
 #game-over p {
   font-size: 2rem;
   text-align: center;
-  color: #e1dec7;
+  color: #dc94ff;
   text-transform: capitalize;
 }
 
@@ -278,8 +269,8 @@ ol {
   margin: 0 auto;
   font-size: 1.5rem;
   background: none;
-  border: 2px solid #fcd256;
-  color: #fcd256;
+  border: 2px solid #dc94ff;
+  color: #dc94ff;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   cursor: pointer;
@@ -347,6 +338,7 @@ ol {
   justify-content: center;
   align-items: center;
   height: 100%;
+  background-color: #5A1E76;
 }
 
 @keyframes slide-in-from-left {
@@ -415,13 +407,15 @@ ol {
 }
 
 @media screen and (min-width: 320px) and (max-width: 800px) {
+  .child-1{
+    display: none;
+  }
   #game-container {
     grid-template-areas:
-      "logo ."
+    "player-1 player-2"
       "board board"
       "board board"
-      "board board"
-      "player-1 player-2";
+      "board board";
   }
 
   .players {
@@ -430,8 +424,16 @@ ol {
   }
 
   #game-board button {
+    width: 6rem;
+    height: 6rem;
+    font-size: 2rem;
+  }
+}
+
+
+@media screen and (min-width: 320px) and (max-width: 400px) {
+  #game-board button {
     width: 4rem;
     height: 4rem;
-    font-size: 2rem;
   }
 }

@@ -101,7 +101,7 @@ function App() {
   return (
     <main>
       <div id="game-container">
-        <span className="child-1">Tic Tac Toe</span>
+        <span className="child-1">tic. tac. toe.</span>
         <div class="players player-1">
           <Player
             initialName={PLAYERS.X}
